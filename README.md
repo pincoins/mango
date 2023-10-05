@@ -9,3 +9,9 @@ django-admin startproject conf .
 ```
 
 # remove django.contrib apps
+
+# fixtures
+
+```
+python manage.py dumpdata myapp.Role --output fixtures/role.json
+```
