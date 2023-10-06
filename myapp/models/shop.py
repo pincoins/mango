@@ -265,7 +265,7 @@ class OrderProduct(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'order product'
         verbose_name_plural = 'order products'
-        db_table = 'order_products'
+        db_table = 'order_product'
 
 
 class OrderProductVoucher(model_utils_models.TimeStampedModel):
@@ -298,4 +298,4 @@ class OrderProductVoucher(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'order product voucher'
         verbose_name_plural = 'order product vouchers'
-        db_table = 'order product vouchers'
+        db_table = 'order_product_voucher'
