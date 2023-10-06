@@ -10,6 +10,8 @@ django-admin startproject conf .
 
 # remove
 
+* `DEBUG`
+* `ALLOWED_HOSTS`
 * `INSTALLED_APPS`
 * `MIDDLEWARE`
 * `ROOT_URLCONF`

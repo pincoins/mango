@@ -11,8 +11,6 @@ with open(secret_file) as f:
     secrets = json.loads(f.read())
 
 SECRET_KEY = secrets['secretKey']
-DEBUG = secrets['debug']
-ALLOWED_HOSTS = secrets['allowedHosts']
 
 DATABASES = {
     'default': secrets['database']['default'],
