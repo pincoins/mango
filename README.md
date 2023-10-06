@@ -1,15 +1,16 @@
 # prepare
 
+## venv & django
 ```
 pyenv shell 3.11.5
 python -m venv venv
 source venv/bin/activate
 pip install django
 django-admin startproject conf .
+python manage.py startapp myapp
 ```
 
-# remove
-
+## remove settings
 * `DEBUG`
 * `ALLOWED_HOSTS`
 * `INSTALLED_APPS`
@@ -24,16 +25,21 @@ django-admin startproject conf .
 * `USE_TZ`
 * `STATIC_URL`
 
-# fixtures
-
+## fixtures
 ```
 python manage.py dumpdata myapp.Role --output fixtures/role.json
+python manage.py loaddata fixtures/role.json
 ```
 
-# reset migrations
-
+## reset migrations
 ```
 python manage.py migrate --fake myapp zero
 python manage.py makemigrations
 python manage.py migrate --fake-initial
+```
+
+# Usage
+```
+python manage.py makemigrations
+python manage.py migrate
 ```
