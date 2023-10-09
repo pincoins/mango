@@ -13,6 +13,8 @@ class User(model_utils_models.TimeStampedModel):
     )
 
     email = models.EmailField(
+        unique=True,
+        max_length=150,
     )
 
     name = models.CharField(
