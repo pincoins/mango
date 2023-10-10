@@ -6,6 +6,17 @@ from model_utils import models as model_utils_models
 
 
 class Category(model_utils_models.TimeStampedModel):
+    title = models.CharField(
+        max_length=128,
+        default='category-title',
+    )
+
+    slug = models.SlugField(
+        max_length=255,
+        unique=True,
+        default='category-slug',
+    )
+
     description = models.TextField(
         blank=True,
     )
@@ -35,10 +46,10 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         blank=True,
     )
 
-    code = models.SlugField(
+    slug = models.SlugField(
         max_length=255,
         unique=True,
-        allow_unicode=True,
+        default='product-slug',
     )
 
     description = models.TextField(
@@ -46,6 +57,17 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     )
 
     position = models.IntegerField(
+        default=0,
+    )
+
+    status = models.IntegerField(
+        db_index=True,
+        default=0,
+    )
+
+    stock = models.IntegerField(
+        db_index=True,
+        default=0,
     )
 
     # Max = 999,999,999.99
@@ -97,6 +119,11 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     remarks = models.CharField(
         max_length=64,
         blank=True,
+    )
+
+    status = models.IntegerField(
+        db_index=True,
+        default=0,
     )
 
     class Meta:
