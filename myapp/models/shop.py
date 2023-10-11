@@ -163,7 +163,7 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         ]
 
 
-class Order(model_utils_models.TimeStampedModel):
+class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     order_id = models.UUIDField(
         unique=True,
         default=uuid.uuid4,
