@@ -36,6 +36,31 @@ class Category(model_utils_models.TimeStampedModel):
         db_table = 'category'
 
 
+class CategoryTreePath(model_utils_models.TimeStampedModel):
+    ancestor = models.ForeignKey(
+        'myapp.Category',
+        db_index=True,
+        on_delete=models.CASCADE,
+        related_name='ancestors',
+    )
+
+    descendant = models.ForeignKey(
+        'myapp.Category',
+        db_index=True,
+        on_delete=models.CASCADE,
+        related_name='descendants',
+    )
+
+    path_length = models.IntegerField(
+        default=0,
+    )
+
+    class Meta:
+        verbose_name = 'category tree path'
+        verbose_name_plural = 'category tree paths'
+        db_table = 'category_tree_path'
+
+
 class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     name = models.CharField(
         max_length=255,
