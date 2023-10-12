@@ -163,7 +163,7 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         ]
 
 
-class Order(model_utils_models.TimeStampedModel):
+class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     order_id = models.UUIDField(
         unique=True,
         default=uuid.uuid4,
@@ -277,7 +277,7 @@ class OrderPayment(model_utils_models.TimeStampedModel):
         db_table = 'order_payment'
 
 
-class OrderProduct(model_utils_models.TimeStampedModel):
+class OrderProduct(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     order = models.ForeignKey(
         'myapp.Order',
         db_index=True,
