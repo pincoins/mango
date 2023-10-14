@@ -172,11 +172,13 @@ class Profile(model_utils_models.TimeStampedModel):
     gender = models.IntegerField(
         default=0,
         db_index=True,
+        null=True,
     )
 
     domestic = models.IntegerField(
         default=0,
         db_index=True,
+        null=True,
     )
 
     telecom = models.CharField(
