@@ -77,6 +77,7 @@ class Profile(model_utils_models.TimeStampedModel):
     address = models.CharField(
         max_length=255,
         blank=True,
+        null=True,
     )
 
     phone_verified = models.BooleanField(
@@ -88,9 +89,8 @@ class Profile(model_utils_models.TimeStampedModel):
         db_index=True,
     )
 
-    document_verified = models.IntegerField(
-        default=0,
-        db_index=True,
+    document_verified = models.BooleanField(
+        default=False,
     )
 
     allow_order = models.BooleanField(
@@ -100,11 +100,13 @@ class Profile(model_utils_models.TimeStampedModel):
     photo_id = models.CharField(
         max_length=256,
         blank=True,
+        null=True,
     )
 
     card = models.CharField(
         max_length=256,
         blank=True,
+        null=True,
     )
 
     total_order_count = models.IntegerField(
@@ -159,6 +161,7 @@ class Profile(model_utils_models.TimeStampedModel):
 
     memo = models.TextField(
         blank=True,
+        null=True,
     )
 
     date_of_birth = models.DateField(
@@ -179,6 +182,7 @@ class Profile(model_utils_models.TimeStampedModel):
     telecom = models.CharField(
         max_length=16,
         blank=True,
+        null=True,
     )
 
     class Meta:
