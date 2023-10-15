@@ -25,8 +25,9 @@ class User(model_utils_models.TimeStampedModel):
         null=True,
     )
 
-    is_active = models.BooleanField(
-        default=False,
+    status = models.IntegerField(
+        default=0,
+        db_index=True,
     )
 
     role = models.ForeignKey(
