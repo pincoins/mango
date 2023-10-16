@@ -19,8 +19,8 @@
     "model": "myapp.role",
     "pk": 3,
     "fields": {
-      "code": "ROLE_USER",
-      "name": "USER"
+      "code": "ROLE_MEMBER",
+      "name": "MEMBER"
     }
   }
 ]
