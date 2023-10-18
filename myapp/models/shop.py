@@ -30,6 +30,11 @@ class Category(model_utils_models.TimeStampedModel):
         decimal_places=2,
     )
 
+    status = models.IntegerField(
+        db_index=True,
+        default=0,
+    )
+
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
