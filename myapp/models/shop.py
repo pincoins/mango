@@ -277,7 +277,7 @@ class OrderPayment(model_utils_models.TimeStampedModel):
         db_table = 'order_payment'
 
 
-class OrderProduct(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     order = models.ForeignKey(
         'myapp.Order',
         db_index=True,
@@ -315,14 +315,14 @@ class OrderProduct(model_utils_models.SoftDeletableModel, model_utils_models.Tim
     )
 
     class Meta:
-        verbose_name = 'order product'
-        verbose_name_plural = 'order products'
-        db_table = 'order_product'
+        verbose_name = 'order item'
+        verbose_name_plural = 'order items'
+        db_table = 'order_item'
 
 
-class OrderProductVoucher(model_utils_models.TimeStampedModel):
+class OrderItemVoucher(model_utils_models.TimeStampedModel):
     order_product = models.ForeignKey(
-        'myapp.OrderProduct',
+        'myapp.OrderItem',
         db_index=True,
         on_delete=models.CASCADE,
     )
@@ -348,6 +348,6 @@ class OrderProductVoucher(model_utils_models.TimeStampedModel):
     )
 
     class Meta:
-        verbose_name = 'order product voucher'
-        verbose_name_plural = 'order product vouchers'
-        db_table = 'order_product_voucher'
+        verbose_name = 'order item voucher'
+        verbose_name_plural = 'order item vouchers'
+        db_table = 'order_item_voucher'
