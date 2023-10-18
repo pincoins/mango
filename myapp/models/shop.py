@@ -321,7 +321,7 @@ class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeSt
 
 
 class OrderItemVoucher(model_utils_models.TimeStampedModel):
-    order_product = models.ForeignKey(
+    order_item = models.ForeignKey(
         'myapp.OrderItem',
         db_index=True,
         on_delete=models.CASCADE,
