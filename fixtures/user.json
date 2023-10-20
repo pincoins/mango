@@ -9,7 +9,7 @@
       "username": "admin",
       "email": "admin@example.com",
       "name": "admin",
-      "status": 1,
+      "status": "NORMAL",
       "role": 1
     }
   }
