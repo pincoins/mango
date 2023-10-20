@@ -30,9 +30,10 @@ class Category(model_utils_models.TimeStampedModel):
         decimal_places=2,
     )
 
-    status = models.IntegerField(
+    status = models.CharField(
+        max_length=32,
         db_index=True,
-        default=0,
+        default='NORMAL',
     )
 
     class Meta:
