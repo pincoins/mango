@@ -25,9 +25,10 @@ class User(model_utils_models.TimeStampedModel):
         null=True,
     )
 
-    status = models.IntegerField(
-        default=0,
+    status = models.CharField(
+        max_length=32,
         db_index=True,
+        default='NORMAL',
     )
 
     role = models.ForeignKey(
