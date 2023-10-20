@@ -86,11 +86,11 @@ class Profile(model_utils_models.TimeStampedModel):
         default=False,
     )
 
-    phone_verified_status = models.IntegerField(
-        default=0,
+    phone_verified_status = models.CharField(
+        max_length=32,
         db_index=True,
+        default='UNVERIFIED',
     )
-
     document_verified = models.BooleanField(
         default=False,
     )
@@ -171,16 +171,16 @@ class Profile(model_utils_models.TimeStampedModel):
         null=True,
     )
 
-    gender = models.IntegerField(
-        default=0,
+    gender = models.CharField(
+        max_length=32,
         db_index=True,
-        null=True,
+        default='MALE',
     )
 
-    domestic = models.IntegerField(
-        default=0,
+    domestic = models.CharField(
+        max_length=32,
         db_index=True,
-        null=True,
+        default='DOMESTIC',
     )
 
     telecom = models.CharField(
