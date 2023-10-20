@@ -91,14 +91,16 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         default=0,
     )
 
-    status = models.IntegerField(
+    status = models.CharField(
+        max_length=32,
         db_index=True,
-        default=0,
+        default='ENABLED',
     )
 
-    stock = models.IntegerField(
+    stock = models.CharField(
+        max_length=32,
         db_index=True,
-        default=0,
+        default='IN_STOCK',
     )
 
     # Max = 999,999,999.99
@@ -152,9 +154,10 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         blank=True,
     )
 
-    status = models.IntegerField(
+    status = models.CharField(
+        max_length=32,
         db_index=True,
-        default=0,
+        default='PURCHASED',
     )
 
     class Meta:
@@ -201,8 +204,10 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
     ip_address = models.GenericIPAddressField(
     )
 
-    payment_method = models.IntegerField(
+    payment_method = models.CharField(
+        max_length=32,
         db_index=True,
+        default='BANK_TRANSFER',
     )
 
     transaction_id = models.CharField(
@@ -210,12 +215,16 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         blank=True,
     )
 
-    status = models.IntegerField(
+    status = models.CharField(
+        max_length=32,
         db_index=True,
+        default='PAYMENt_PENDING',
     )
 
-    visible = models.IntegerField(
+    visible = models.CharField(
+        max_length=32,
         db_index=True,
+        default='VISIBLE',
     )
 
     # Max = 999,999,999.99
@@ -259,8 +268,10 @@ class OrderPayment(model_utils_models.TimeStampedModel):
         on_delete=models.CASCADE,
     )
 
-    account = models.IntegerField(
+    account = models.CharField(
+        max_length=32,
         db_index=True,
+        default='KB',
     )
 
     amount = models.DecimalField(
