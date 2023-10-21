@@ -31,33 +31,16 @@ class User(model_utils_models.TimeStampedModel):
         default='NORMAL',
     )
 
-    role = models.ForeignKey(
-        'myapp.Role',
+    role = models.CharField(
+        max_length=32,
         db_index=True,
-        on_delete=models.CASCADE,
-        null=True,
+        default='ROLE_MEMBER',
     )
 
     class Meta:
         verbose_name = 'user'
         verbose_name_plural = 'users'
         db_table = 'user'
-
-
-class Role(models.Model):
-    code = models.CharField(
-        unique=True,
-        max_length=150,
-    )
-
-    name = models.CharField(
-        max_length=150,
-    )
-
-    class Meta:
-        verbose_name = 'role'
-        verbose_name_plural = 'roles'
-        db_table = 'role'
 
 
 class Profile(model_utils_models.TimeStampedModel):

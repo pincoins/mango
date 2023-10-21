@@ -10,7 +10,7 @@
       "email": "admin@example.com",
       "name": "admin",
       "status": "NORMAL",
-      "role": 1
+      "role": "ROLE_SYSADMIN"
     }
   }
 ]
