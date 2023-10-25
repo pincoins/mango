@@ -5,6 +5,11 @@ from model_utils import models as model_utils_models
 
 
 class User(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='user_id'
+    )
+
     password = models.CharField(
         max_length=128,
     )
@@ -44,6 +49,11 @@ class User(model_utils_models.TimeStampedModel):
 
 
 class Profile(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='profile_id'
+    )
+
     user = models.OneToOneField(
         'myapp.User',
         db_index=True,
