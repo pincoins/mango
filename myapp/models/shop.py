@@ -6,6 +6,11 @@ from model_utils import models as model_utils_models
 
 
 class Category(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='category_id'
+    )
+
     title = models.CharField(
         max_length=128,
         default='category-title',
@@ -43,6 +48,11 @@ class Category(model_utils_models.TimeStampedModel):
 
 
 class CategoryTreePath(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='category_tree_path_id'
+    )
+
     ancestor = models.ForeignKey(
         'myapp.Category',
         db_index=True,
@@ -68,6 +78,11 @@ class CategoryTreePath(model_utils_models.TimeStampedModel):
 
 
 class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='product_id'
+    )
+
     name = models.CharField(
         max_length=255,
     )
@@ -139,6 +154,11 @@ class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
 
 
 class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='voucher_id'
+    )
+
     product = models.ForeignKey(
         'myapp.Product',
         db_index=True,
@@ -173,7 +193,12 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
 
 
 class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
-    order_id = models.UUIDField(
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='order_id'
+    )
+
+    order_uuid = models.UUIDField(
         unique=True,
         default=uuid.uuid4,
         editable=False
@@ -262,6 +287,11 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
 
 
 class OrderPayment(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='order_payment_id'
+    )
+
     order = models.ForeignKey(
         'myapp.Order',
         db_index=True,
@@ -295,6 +325,11 @@ class OrderPayment(model_utils_models.TimeStampedModel):
 
 
 class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='order_item_id'
+    )
+
     order = models.ForeignKey(
         'myapp.Order',
         db_index=True,
@@ -338,6 +373,11 @@ class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeSt
 
 
 class OrderItemVoucher(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='order_item_voucher_id'
+    )
+
     order_item = models.ForeignKey(
         'myapp.OrderItem',
         db_index=True,
