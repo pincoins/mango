@@ -63,33 +63,45 @@ class Profile(model_utils_models.TimeStampedModel):
         on_delete=models.SET_NULL,
     )
 
-    phone = models.CharField(
-        max_length=16,
-        blank=True,
-        null=True,
-    )
-
     address = models.CharField(
         max_length=255,
         blank=True,
         null=True,
     )
 
-    phone_verified = models.BooleanField(
-        default=False,
+    phone = models.CharField(
+        max_length=16,
+        blank=True,
+        null=True,
+    )
+
+    date_of_birth = models.DateField(
+        blank=True,
+        null=True,
+    )
+
+    gender = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
+
+    domestic = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
+
+    telecom = models.CharField(
+        max_length=16,
+        blank=True,
+        null=True,
     )
 
     phone_verified_status = models.CharField(
         max_length=32,
         db_index=True,
         default='UNVERIFIED',
-    )
-    document_verified = models.BooleanField(
-        default=False,
-    )
-
-    allow_order = models.BooleanField(
-        default=False,
     )
 
     photo_id = models.CharField(
@@ -102,6 +114,16 @@ class Profile(model_utils_models.TimeStampedModel):
         max_length=256,
         blank=True,
         null=True,
+    )
+
+    document_verified_status = models.CharField(
+        max_length=32,
+        db_index=True,
+        default='UNVERIFIED',
+    )
+
+    allow_order = models.BooleanField(
+        default=False,
     )
 
     total_order_count = models.IntegerField(
@@ -155,29 +177,6 @@ class Profile(model_utils_models.TimeStampedModel):
     )
 
     memo = models.TextField(
-        blank=True,
-        null=True,
-    )
-
-    date_of_birth = models.DateField(
-        blank=True,
-        null=True,
-    )
-
-    gender = models.CharField(
-        max_length=32,
-        blank=True,
-        null=True,
-    )
-
-    domestic = models.CharField(
-        max_length=32,
-        blank=True,
-        null=True,
-    )
-
-    telecom = models.CharField(
-        max_length=16,
         blank=True,
         null=True,
     )
