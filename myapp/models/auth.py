@@ -166,14 +166,14 @@ class Profile(model_utils_models.TimeStampedModel):
 
     gender = models.CharField(
         max_length=32,
-        db_index=True,
-        default='MALE',
+        blank=True,
+        null=True,
     )
 
     domestic = models.CharField(
         max_length=32,
-        db_index=True,
-        default='DOMESTIC',
+        blank=True,
+        null=True,
     )
 
     telecom = models.CharField(
