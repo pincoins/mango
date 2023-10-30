@@ -4,8 +4,10 @@ from decimal import Decimal
 from django.db import models
 from model_utils import models as model_utils_models
 
+from . import base_models
 
-class Category(model_utils_models.TimeStampedModel):
+
+class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
     id = models.BigAutoField(
         primary_key=True,
         db_column='category_id'
@@ -77,7 +79,7 @@ class CategoryTreePath(model_utils_models.TimeStampedModel):
         db_table = 'category_tree_path'
 
 
-class Product(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     id = models.BigAutoField(
         primary_key=True,
         db_column='product_id'
