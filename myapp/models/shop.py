@@ -73,6 +73,10 @@ class CategoryTreePath(model_utils_models.TimeStampedModel):
         default=0,
     )
 
+    position = models.IntegerField(
+        default=0,
+    )
+
     class Meta:
         verbose_name = 'category tree path'
         verbose_name_plural = 'category tree paths'
