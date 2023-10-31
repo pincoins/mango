@@ -43,6 +43,10 @@ class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
         default='NORMAL',
     )
 
+    is_root = models.BooleanField(
+        default=False,
+    )
+
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
