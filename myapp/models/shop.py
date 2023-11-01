@@ -139,6 +139,11 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
         decimal_places=2,
     )
 
+    buying_price = models.DecimalField(
+        max_digits=11,
+        decimal_places=2,
+    )
+
     category = models.ForeignKey(
         'myapp.Category',
         db_index=True,
