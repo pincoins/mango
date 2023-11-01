@@ -377,6 +377,12 @@ class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeSt
         default=Decimal('0.00'),
     )
 
+    buying_price = models.DecimalField(
+        max_digits=11,
+        decimal_places=2,
+        default=Decimal('0.00'),
+    )
+
     quantity = models.IntegerField(
         default=0,
     )
