@@ -57,10 +57,7 @@ class Profile(model_utils_models.TimeStampedModel):
     user = models.OneToOneField(
         'myapp.User',
         db_index=True,
-        null=True,
-        blank=True,
-        editable=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
     )
 
     address = models.CharField(
