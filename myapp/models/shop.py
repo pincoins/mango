@@ -150,10 +150,6 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
         on_delete=models.CASCADE,
     )
 
-    stock_quantity = models.IntegerField(
-        default=0,
-    )
-
     minimum_stock_level = models.IntegerField(
         default=0,
     )
@@ -228,7 +224,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         on_delete=models.SET_NULL,
     )
 
-    fullname = models.CharField(
+    full_name = models.CharField(
         max_length=64,
         blank=True,
     )
