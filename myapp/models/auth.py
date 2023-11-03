@@ -24,7 +24,7 @@ class User(model_utils_models.TimeStampedModel):
         max_length=150,
     )
 
-    name = models.CharField(
+    full_name = models.CharField(
         max_length=150,
         blank=True,
         null=True,

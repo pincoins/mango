@@ -243,6 +243,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
 
     transaction_id = models.CharField(
         max_length=64,
+        null=True,
         blank=True,
     )
 
@@ -280,6 +281,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
     )
 
     message = models.TextField(
+        null=True,
         blank=True,
     )
 
