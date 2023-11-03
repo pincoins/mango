@@ -32,13 +32,11 @@ class User(model_utils_models.TimeStampedModel):
 
     status = models.CharField(
         max_length=32,
-        db_index=True,
         default='NORMAL',
     )
 
     role = models.CharField(
         max_length=32,
-        db_index=True,
         default='ROLE_MEMBER',
     )
 
@@ -97,7 +95,6 @@ class Profile(model_utils_models.TimeStampedModel):
 
     phone_verified_status = models.CharField(
         max_length=32,
-        db_index=True,
         default='UNVERIFIED',
     )
 
@@ -115,7 +112,6 @@ class Profile(model_utils_models.TimeStampedModel):
 
     document_verified_status = models.CharField(
         max_length=32,
-        db_index=True,
         default='UNVERIFIED',
     )
 

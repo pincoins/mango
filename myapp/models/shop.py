@@ -39,7 +39,6 @@ class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
 
     status = models.CharField(
         max_length=32,
-        db_index=True,
         default='NORMAL',
     )
 
@@ -118,13 +117,11 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
 
     status = models.CharField(
         max_length=32,
-        db_index=True,
         default='ENABLED',
     )
 
     stock = models.CharField(
         max_length=32,
-        db_index=True,
         default='IN_STOCK',
     )
 
@@ -187,7 +184,6 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
 
     status = models.CharField(
         max_length=32,
-        db_index=True,
         default='PURCHASED',
     )
 
@@ -242,7 +238,6 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
 
     payment_method = models.CharField(
         max_length=32,
-        db_index=True,
         default='BANK_TRANSFER',
     )
 
@@ -253,13 +248,21 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
 
     status = models.CharField(
         max_length=32,
-        db_index=True,
-        default='PAYMENt_PENDING',
+        default='ORDERED',
+    )
+
+    payment = models.CharField(
+        max_length=32,
+        default='UNPAID',
+    )
+
+    delivery = models.CharField(
+        max_length=32,
+        default='NOT_SENT',
     )
 
     visible = models.CharField(
         max_length=32,
-        db_index=True,
         default='VISIBLE',
     )
 
@@ -311,7 +314,6 @@ class OrderPayment(model_utils_models.TimeStampedModel):
 
     account = models.CharField(
         max_length=32,
-        db_index=True,
         default='KB',
     )
 
