@@ -205,10 +205,10 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         db_column='order_id'
     )
 
-    order_uuid = models.UUIDField(
+    order_uuid = models.CharField(
+        max_length=36,
         unique=True,
         default=uuid.uuid4,
-        editable=False
     )
 
     user = models.ForeignKey(
@@ -216,7 +216,6 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         db_index=True,
         null=True,
         blank=True,
-        editable=True,
         on_delete=models.SET_NULL,
     )
 
@@ -233,7 +232,8 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         blank=True,
     )
 
-    ip_address = models.GenericIPAddressField(
+    ip_address = models.CharField(
+        max_length=39,
     )
 
     payment_method = models.CharField(
