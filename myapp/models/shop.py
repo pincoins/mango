@@ -49,7 +49,7 @@ class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
-        db_table = 'category'
+        db_table = 'shop_category'
 
 
 class CategoryTreePath(model_utils_models.TimeStampedModel):
@@ -83,7 +83,7 @@ class CategoryTreePath(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'category tree path'
         verbose_name_plural = 'category tree paths'
-        db_table = 'category_tree_path'
+        db_table = 'shop_category_tree_path'
 
 
 class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
@@ -158,7 +158,7 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
     class Meta:
         verbose_name = 'product'
         verbose_name_plural = 'products'
-        db_table = 'product'
+        db_table = 'shop_product'
 
 
 class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
@@ -190,7 +190,7 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     class Meta:
         verbose_name = 'voucher'
         verbose_name_plural = 'vouchers'
-        db_table = 'voucher'
+        db_table = 'shop_voucher'
 
         unique_together = ('product', 'code',)
 
@@ -299,7 +299,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
     class Meta:
         verbose_name = 'pincoin order'
         verbose_name_plural = 'pincoin orders'
-        db_table = 'order'
+        db_table = 'shop_order'
 
 
 class OrderPayment(model_utils_models.TimeStampedModel):
@@ -336,7 +336,7 @@ class OrderPayment(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'order payment'
         verbose_name_plural = 'order payments'
-        db_table = 'order_payment'
+        db_table = 'shop_order_payment'
 
 
 class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
@@ -390,7 +390,7 @@ class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeSt
     class Meta:
         verbose_name = 'order item'
         verbose_name_plural = 'order items'
-        db_table = 'order_item'
+        db_table = 'shop_order_item'
 
 
 class OrderItemVoucher(model_utils_models.TimeStampedModel):
@@ -428,4 +428,4 @@ class OrderItemVoucher(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'order item voucher'
         verbose_name_plural = 'order item vouchers'
-        db_table = 'order_item_voucher'
+        db_table = 'shop_order_item_voucher'
