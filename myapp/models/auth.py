@@ -43,7 +43,7 @@ class User(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'user'
         verbose_name_plural = 'users'
-        db_table = 'user'
+        db_table = 'auth_user'
 
 
 class Profile(model_utils_models.TimeStampedModel):
@@ -62,6 +62,11 @@ class Profile(model_utils_models.TimeStampedModel):
         max_length=255,
         blank=True,
         null=True,
+    )
+
+    email_verified_status = models.CharField(
+        max_length=32,
+        default='UNVERIFIED',
     )
 
     phone = models.CharField(
@@ -177,4 +182,4 @@ class Profile(model_utils_models.TimeStampedModel):
     class Meta:
         verbose_name = 'profile'
         verbose_name_plural = 'profiles'
-        db_table = 'profile'
+        db_table = 'auth_profile'
