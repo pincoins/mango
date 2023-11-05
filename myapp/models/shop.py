@@ -339,7 +339,7 @@ class OrderPayment(model_utils_models.TimeStampedModel):
         db_table = 'shop_order_payment'
 
 
-class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+class OrderItem(model_utils_models.TimeStampedModel):
     id = models.BigAutoField(
         primary_key=True,
         db_column='order_item_id'
