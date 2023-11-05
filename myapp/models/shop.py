@@ -14,12 +14,12 @@ class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
     )
 
     title = models.CharField(
-        max_length=128,
+        max_length=32,
         default='category-title',
     )
 
     slug = models.SlugField(
-        max_length=255,
+        max_length=32,
         unique=True,
         default='category-slug',
     )
@@ -93,16 +93,16 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
     )
 
     name = models.CharField(
-        max_length=255,
+        max_length=32,
     )
 
     subtitle = models.CharField(
-        max_length=255,
+        max_length=32,
         blank=True,
     )
 
     slug = models.SlugField(
-        max_length=255,
+        max_length=32,
         unique=True,
         default='product-slug',
     )
@@ -116,12 +116,12 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
     )
 
     status = models.CharField(
-        max_length=32,
+        max_length=16,
         default='ENABLED',
     )
 
     stock = models.CharField(
-        max_length=32,
+        max_length=16,
         default='IN_STOCK',
     )
 
@@ -174,16 +174,16 @@ class Voucher(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     )
 
     code = models.CharField(
-        max_length=64,
+        max_length=32,
     )
 
     remarks = models.CharField(
-        max_length=64,
+        max_length=16,
         blank=True,
     )
 
     status = models.CharField(
-        max_length=32,
+        max_length=16,
         default='PURCHASED',
     )
 
@@ -220,7 +220,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
     )
 
     full_name = models.CharField(
-        max_length=64,
+        max_length=32,
         blank=True,
     )
 
@@ -237,33 +237,33 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
     )
 
     payment_method = models.CharField(
-        max_length=32,
+        max_length=20,
         default='BANK_TRANSFER',
     )
 
     transaction_id = models.CharField(
-        max_length=64,
+        max_length=32,
         null=True,
         blank=True,
     )
 
     status = models.CharField(
-        max_length=32,
+        max_length=16,
         default='ORDERED',
     )
 
     payment = models.CharField(
-        max_length=32,
+        max_length=16,
         default='UNPAID',
     )
 
     delivery = models.CharField(
-        max_length=32,
+        max_length=16,
         default='NOT_SENT',
     )
 
     visible = models.CharField(
-        max_length=32,
+        max_length=16,
         default='VISIBLE',
     )
 
@@ -352,16 +352,16 @@ class OrderItem(model_utils_models.SoftDeletableModel, model_utils_models.TimeSt
     )
 
     name = models.CharField(
-        max_length=255,
+        max_length=32,
     )
 
     subtitle = models.CharField(
-        max_length=255,
+        max_length=32,
         blank=True,
     )
 
-    code = models.CharField(
-        max_length=255,
+    slug = models.CharField(
+        max_length=32,
     )
 
     # Max = 999,999,999.99
@@ -413,7 +413,7 @@ class OrderItemVoucher(model_utils_models.TimeStampedModel):
     )
 
     code = models.CharField(
-        max_length=64,
+        max_length=32,
     )
 
     revoked = models.BooleanField(
@@ -421,7 +421,7 @@ class OrderItemVoucher(model_utils_models.TimeStampedModel):
     )
 
     remarks = models.CharField(
-        max_length=64,
+        max_length=32,
         blank=True,
     )
 
