@@ -7,7 +7,7 @@ from model_utils import models as model_utils_models
 from . import base_models
 
 
-class Category(base_models.AuditedModel, model_utils_models.TimeStampedModel):
+class Category(base_models.AuditedModel, model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     id = models.BigAutoField(
         primary_key=True,
         db_column='category_id'
