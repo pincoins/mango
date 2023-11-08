@@ -155,6 +155,10 @@ class Product(base_models.AuditedModel, model_utils_models.SoftDeletableModel, m
         default=0,
     )
 
+    stock_quantity = models.IntegerField(
+        default=0,
+    )
+
     class Meta:
         verbose_name = 'product'
         verbose_name_plural = 'products'
@@ -257,7 +261,7 @@ class Order(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampe
         default='UNPAID',
     )
 
-    delivery = models.CharField(
+    sending = models.CharField(
         max_length=16,
         default='NOT_SENT',
     )
