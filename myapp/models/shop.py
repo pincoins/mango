@@ -46,6 +46,10 @@ class Category(base_models.AuditedModel, model_utils_models.SoftDeletableModel, 
         default=False,
     )
 
+    position = models.IntegerField(
+        default=0,
+    )
+
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
