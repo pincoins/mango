@@ -19,11 +19,6 @@ class User(model_utils_models.TimeStampedModel):
         max_length=150,
     )
 
-    email = models.EmailField(
-        unique=True,
-        max_length=150,
-    )
-
     full_name = models.CharField(
         max_length=150,
         blank=True,

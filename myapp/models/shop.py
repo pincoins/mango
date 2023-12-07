@@ -433,3 +433,59 @@ class OrderItemVoucher(model_utils_models.TimeStampedModel):
         verbose_name = 'order item voucher'
         verbose_name_plural = 'order item vouchers'
         db_table = 'shop_order_item_voucher'
+
+
+class CartItem(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='cart_item_id'
+    )
+
+    quantity = models.IntegerField(
+        default=0,
+    )
+
+    user = models.ForeignKey(
+        'myapp.User',
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+    )
+
+    product = models.ForeignKey(
+        'myapp.Product',
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    class Meta:
+        verbose_name = 'cart item'
+        verbose_name_plural = 'cart items'
+        db_table = 'shop_cart_item'
+
+
+class FavoriteItem(model_utils_models.TimeStampedModel):
+    id = models.BigAutoField(
+        primary_key=True,
+        db_column='favorite_item'
+    )
+
+    user = models.ForeignKey(
+        'myapp.User',
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+    )
+
+    product = models.ForeignKey(
+        'myapp.Product',
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    class Meta:
+        verbose_name = 'favorite item'
+        verbose_name_plural = 'favorite items'
+        db_table = 'shop_favorite_item'
