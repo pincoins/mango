@@ -464,6 +464,8 @@ class CartItem(model_utils_models.TimeStampedModel):
         verbose_name_plural = 'cart items'
         db_table = 'shop_cart_item'
 
+        unique_together = ('user', 'product',)
+
 
 class FavoriteItem(model_utils_models.TimeStampedModel):
     id = models.BigAutoField(
@@ -489,3 +491,5 @@ class FavoriteItem(model_utils_models.TimeStampedModel):
         verbose_name = 'favorite item'
         verbose_name_plural = 'favorite items'
         db_table = 'shop_favorite_item'
+
+        unique_together = ('user', 'product',)
