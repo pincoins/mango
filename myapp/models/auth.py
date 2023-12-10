@@ -174,6 +174,14 @@ class Profile(model_utils_models.TimeStampedModel):
         null=True,
     )
 
+    favorites = models.TextField(
+        default="{}"
+    )
+
+    cart = models.TextField(
+        default="{}"
+    )
+
     class Meta:
         verbose_name = 'profile'
         verbose_name_plural = 'profiles'
