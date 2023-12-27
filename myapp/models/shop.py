@@ -37,6 +37,12 @@ class Category(base_models.AuditedModel, model_utils_models.SoftDeletableModel, 
         decimal_places=2,
     )
 
+    image = models.CharField(
+        max_length=256,
+        blank=True,
+        null=True,
+    )
+
     status = models.CharField(
         max_length=32,
         default='NORMAL',
